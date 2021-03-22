@@ -84,8 +84,8 @@ Find the proportion of inmates with claims of innocence in their last statements
 
 ```SQL
 SELECT COUNT(CASE 
-			 	        WHEN last_statement LIKE '%innocent%' THEN 1
-				        ELSE NULL
-			       END)*1.0/COUNT(*)
+		WHEN last_statement LIKE '%innocent%' THEN 1
+		ELSE NULL
+	     END)*1.0/COUNT(*)
 FROM executions;
 ```

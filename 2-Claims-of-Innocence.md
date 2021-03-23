@@ -89,3 +89,7 @@ SELECT COUNT(CASE
 	     END)*1.0/COUNT(*)
 FROM executions;
 ```
+```SQL
+SELECT SUM(last_statement LIKE '%innocent%')*1.0/COUNT(*)
+FROM executions;
+```

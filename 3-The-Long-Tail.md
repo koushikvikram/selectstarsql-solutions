@@ -32,13 +32,6 @@ GROUP BY county
 HAVING COUNT(*)>2;
 ```
 
-List all the distinct counties in the dataset. Stick with vanilla SELECT and use GROUP BY.
-```SQL
-SELECT county
-FROM executions
-GROUP BY county;
-```
-
 Mark the statements that are true.
 This query finds the number of inmates from each county and 10 year age range.
 ```
@@ -60,3 +53,31 @@ Incorrect Options:
 - The output will have a different value of county for every row it returns.
 - The output can have groups where the count is 0.
 - It is reasonable to add **last_name** to the **SELECT** block even without grouping by it.
+
+List all the distinct counties in the dataset. Stick with vanilla SELECT and use GROUP BY.
+```SQL
+SELECT county
+FROM executions
+GROUP BY county;
+```
+
+Find the first and last name of the the inmate with the longest last statement (by character count).
+```SQL
+SELECT first_name, last_name
+FROM executions
+WHERE LENGTH(last_statement) =
+    (SELECT MAX(LENGTH(last_statement))
+	 FROM executions)
+```
+
+Insert the <count-of-all-rows> query to find the percentage of executions from each county.
+
+```SQL
+SELECT
+  county,
+  100.0 * COUNT(*) / (SELECT COUNT(*) FROM executions)
+    AS percentage
+FROM executions
+GROUP BY county
+ORDER BY percentage DESC
+```

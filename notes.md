@@ -9,4 +9,6 @@ Nesting allows us to use the output of the inner query in an outer one.
 
 ```JOIN```s help us create augmented tables because the original table was missing the information we needed.
 
+**It is very important to understand the order of execution.**
+
 # Test your understanding

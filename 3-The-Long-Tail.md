@@ -38,3 +38,25 @@ SELECT county
 FROM executions
 GROUP BY county;
 ```
+
+Mark the statements that are true.
+This query finds the number of inmates from each county and 10 year age range.
+```
+SELECT
+    county,
+    ex_age/10 AS decade_age,
+    COUNT(*)
+FROM executions
+GROUP BY county, decade_age;
+```
+Correct Options:
+- The query is valid (ie. won't throw an error when run).
+  - The query would return more rows if we were to use **ex_age** instead of **ex_age/10**.
+- The output will have as many rows as there are unique combinations of counties and decade_ages in the dataset.
+- The query would be valid even if we don't specify county in the **SELECT** block.
+
+Incorrect Options:
+- The output will have a group ('Bexar', 6) even though no Bexar county inmates were between 60 and 69 at execution time.
+- The output will have a different value of county for every row it returns.
+- The output can have groups where the count is 0.
+- It is reasonable to add **last_name** to the **SELECT** block even without grouping by it.

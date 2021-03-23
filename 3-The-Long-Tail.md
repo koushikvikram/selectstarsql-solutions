@@ -22,3 +22,12 @@ FROM executions
 WHERE ex_age >= 50
 GROUP BY county;
 ```
+
+List the counties in which more than 2 inmates aged 50 or older have been executed.
+```SQL
+SELECT county
+FROM executions
+WHERE ex_age>=50
+GROUP BY county
+HAVING COUNT(*)>2;
+```

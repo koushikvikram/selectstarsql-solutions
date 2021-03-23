@@ -31,3 +31,10 @@ WHERE ex_age>=50
 GROUP BY county
 HAVING COUNT(*)>2;
 ```
+
+List all the distinct counties in the dataset. Stick with vanilla SELECT and use GROUP BY.
+```SQL
+SELECT county
+FROM executions
+GROUP BY county;
+```
